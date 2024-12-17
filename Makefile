@@ -73,7 +73,7 @@ kernel: $(OBJS)
 	grub-file --is-x86-multiboot $(BUILD_DIR)/ChoacuryOS.bin	
 
 img: kernel
-	./create-disk.sh
+	sudo ./create-disk.sh
 
 run: img
 	qemu-system-x86_64 -hda $(BUILD_DIR)/ChoacuryOS.img -serial stdio -audiodev pa,id=snd0 -machine pcspk-audiodev=snd0

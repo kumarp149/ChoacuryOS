@@ -1,0 +1,30 @@
+name: Build and Save Artifact
+
+on:
+  push:
+    branches:
+      - feature/pipeline
+#   pull_request:
+#     branches:
+#       - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up GCC (or other compiler)
+        run: sudo apt-get install -y build-essential
+
+      - name: Build the binary
+        run: |
+          make
+
+      - name: Upload binary as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: ChoacuryOS.img
+          path: ./build/ChoacuryOS.img
