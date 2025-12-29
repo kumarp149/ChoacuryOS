@@ -3,6 +3,7 @@
 #include "../../terminal.h"
 #include "../../../drivers/vga.h"
 #include "../../../drivers/vbe.h"
+#include "../../../drivers/pit.h"
 
 int shell_pause_command(int argc, const char** argv) {
     if(strcmp(argv[1], "-t") == 0) {

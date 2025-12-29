@@ -5,6 +5,7 @@
 #include "../../../drivers/vbe.h"
 #include "../../../memory/pmm.h"
 
+
 int shell_chstat_command(int argc, const char** argv) {
    	/* this is basically a stupid neofetch clone */
 	char mem_mib_buffer[20];

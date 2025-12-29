@@ -88,14 +88,14 @@ void get_cpu_info(char* vendor, char* brand) {
     }
 }
 
-static void handle_return_code(int return_code, int argc, char** argv) {
+static void handle_return_code(int return_code, int argc, const char** argv) {
     // Look in commands/structure.md for more information //
 
     if(return_code == 2) {
         // 2 = Incorrect arguments return code
         // Display the help page for the specific commands (Flagged with the argument flag to be more specific)
         term_write("Invalid arguments.\n", TC_YELLO);
-        shell_commands_list[0].func(3, (char*[]){ "help", argv[0], "args" });
+        shell_commands_list[0].func(3, (const char*[]){ "help", argv[0], "args" });
     }
 }
 
@@ -279,7 +279,7 @@ void shell_start() {
 	
 	term_write("Creating test file...\n", TC_GREEN);
 	
-	char teststr = "Hello, World!";
+	char* teststr = "Hello, World!";
 	FAT_file_t* file = FAT_OpenAbsolute(s_fat_fs, "/test.txt");
 	FAT_Write(file, 0, teststr, strlen(teststr));
 	FAT_Close(file);

@@ -4,6 +4,9 @@
 #include "../../../drivers/vga.h"
 #include "../../../drivers/vbe.h"
 #include "../../../gui/desktop.h"
+#include "../../../drivers/pit.h"
+#include "../../../drivers/sound.h"
+
 
 int shell_beep_command(int argc, const char** argv) {
     if (argc != 2 && argc != 3) {
